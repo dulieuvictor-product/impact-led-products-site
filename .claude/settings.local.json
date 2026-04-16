@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-git)",
+      "Bash(/usr/local/bin/npm --version)",
+      "Read(//usr/local/**)",
+      "Read(//Users/victordulieu/.nvm/versions/**)",
+      "Bash(brew list:*)",
+      "Bash(/opt/homebrew/bin/brew list:*)",
+      "Bash(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh)",
+      "Bash(bash)"
+    ]
+  }
+}
