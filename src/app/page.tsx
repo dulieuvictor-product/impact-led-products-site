@@ -233,23 +233,22 @@ export default function HomePage() {
               onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = '1'}
             >
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.625rem' }}>
-                <span style={{ fontSize: '1.5rem', lineHeight: 1 }}>🏆</span>
+                <span style={{ fontSize: '1.75rem', lineHeight: 1 }}>🏆</span>
                 <div>
                   <div style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: '0.875rem',
-                    fontWeight: 600,
+                    fontSize: '1.75rem',
+                    fontWeight: 700,
                     color: 'var(--accent)',
-                    lineHeight: 1.3,
-                    marginBottom: '0.2rem',
+                    lineHeight: 1,
+                    marginBottom: '0.25rem',
                   }}>
-                    Produit à impact 2025
+                    Impact 2025
                   </div>
                   <div style={{
                     fontFamily: 'var(--font-body)',
-                    fontSize: '0.75rem',
+                    fontSize: '0.8125rem',
                     color: 'var(--text-muted)',
-                    lineHeight: 1.4,
                   }}>
                     Product Awards · Bene Bono
                   </div>
