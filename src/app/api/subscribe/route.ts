@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Client } from '@notionhq/client';
-
-const notion = new Client({ auth: process.env.NOTION_API_KEY });
+import { Resend } from 'resend';
 
 export async function POST(req: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY ?? 'placeholder');
+
   try {
     const { email, firstName, template } = await req.json();
 
@@ -11,36 +11,41 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Email manquant' }, { status: 400 });
     }
 
-    const databaseId = process.env.NOTION_SUBSCRIBERS_DB_ID;
-    if (!databaseId) {
-      console.error('[subscribe] NOTION_SUBSCRIBERS_DB_ID non défini');
-      return NextResponse.json({ error: 'Configuration manquante' }, { status: 500 });
-    }
+    const recipientEmail = process.env.CONTACT_EMAIL ?? 'dulieu.victor@gmail.com';
+    const date = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 
-    await notion.pages.create({
-      parent: { database_id: databaseId },
-      properties: {
-        Email: {
-          type: 'title',
-          title: [{ type: 'text', text: { content: email } }],
-        },
-        Prénom: {
-          type: 'rich_text',
-          rich_text: [{ type: 'text', text: { content: firstName ?? '' } }],
-        },
-        Template: {
-          type: 'rich_text',
-          rich_text: [{ type: 'text', text: { content: template ?? 'Général' } }],
-        },
-        'Date inscription': {
-          type: 'date',
-          date: { start: new Date().toISOString().split('T')[0] },
-        },
-        Statut: {
-          type: 'select',
-          select: { name: 'Nouveau' },
-        },
-      },
+    await resend.emails.send({
+      from: 'Impact-led products <contact@impact-led-products.com>',
+      to: recipientEmail,
+      replyTo: email,
+      subject: `[Ressource demandée] ${firstName ? firstName + ' — ' : ''}${email}`,
+      html: `
+        <div style="font-family: Inter, sans-serif; max-width: 600px; margin: 0 auto; background: #0D1743; color: #E8E4DC; padding: 2rem; border-radius: 12px;">
+          <h2 style="color: #D9CBB5; font-size: 1.25rem; margin-bottom: 0.5rem;">Nouvelle demande de ressource</h2>
+          <p style="color: #5A6380; font-size: 0.875rem; margin-bottom: 1.5rem;">${date}</p>
+
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 1.5rem;">
+            <tr>
+              <td style="padding: 0.5rem 0; color: #9BA3BF; width: 100px; vertical-align: top;">Prénom</td>
+              <td style="padding: 0.5rem 0;">${firstName || '—'}</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.5rem 0; color: #9BA3BF; vertical-align: top;">Email</td>
+              <td style="padding: 0.5rem 0;"><a href="mailto:${email}" style="color: #D9CBB5;">${email}</a></td>
+            </tr>
+          </table>
+
+          <hr style="border-color: rgba(255,255,255,0.08); margin: 1.5rem 0;" />
+
+          <h3 style="color: #D9CBB5; font-size: 1rem; margin-bottom: 1rem;">Ressource(s) demandée(s)</h3>
+          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1rem; line-height: 1.8;">
+            ${(template ?? '').split(', ').map((t: string) => `• ${t}`).join('<br/>')}
+          </div>
+
+          <hr style="border-color: rgba(255,255,255,0.08); margin: 1.5rem 0;" />
+          <p style="color: #5A6380; font-size: 0.8125rem;">Via le formulaire ressources — impact-led-products.com</p>
+        </div>
+      `,
     });
 
     return NextResponse.json({ success: true });
