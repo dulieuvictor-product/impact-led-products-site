@@ -522,47 +522,70 @@ export default function HomePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
             {[
               {
+                tag: 'Impact',
+                source: 'Medium',
+                sourceColor: '#A8B4C8',
+                title: '(repost) Le Product delight dans une boîte à impact, cosmétique ou vraiment utile ?',
+                date: '21 octobre 2025',
+                url: 'https://medium.com/@dulieu.victor/repost-le-product-delight-dans-une-boîte-à-impact-cosmétique-ou-vraiment-utile-bb84ab74b53d',
+              },
+              {
+                tag: 'IA & Produit',
+                source: 'Medium',
+                sourceColor: '#A8B4C8',
+                title: 'Guide pratique : nos itérations sur un produit "intelligent"',
+                date: '19 février 2025',
+                url: 'https://medium.com/@dulieu.victor/guide-pratique-nos-itérations-sur-un-produit-intelligent-9176ce043a89',
+              },
+              {
                 tag: 'Stratégie',
-                title: 'Pourquoi la plupart des roadmaps sont des mensonges bien intentionnés',
-                date: 'Avril 2025',
-                slug: 'roadmaps-mensonges',
+                source: 'Thiga',
+                sourceColor: '#7DD3A8',
+                title: 'Arrêtons de nous mentir sur le Product Management',
+                date: '4 février 2024',
+                url: 'https://www.media.thiga.co/arretons-de-nous-mentir-sur-le-product-management',
               },
-              {
-                tag: 'Discovery',
-                title: 'Comment structurer un sprint Discovery sans perdre son équipe en route',
-                date: 'Mars 2025',
-                slug: 'sprint-discovery',
-              },
-              {
-                tag: 'OKR',
-                title: 'OKR : l\'outil le plus mal utilisé du management produit',
-                date: 'Février 2025',
-                slug: 'okr-management',
-              },
-            ].map(({ tag, title, date, slug }) => (
-              <Link
-                key={slug}
-                href={`/blog/${slug}`}
+            ].map(({ tag, source, sourceColor, title, date, url }) => (
+              <a
+                key={url}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => phCapture('cta_clicked', { label: title, location: 'home_blog_preview' })}
                 style={{ textDecoration: 'none' }}
               >
                 <article
                   className="glass-card glass-card-hover"
-                  style={{ padding: '1.75rem', borderRadius: '12px', height: '100%', cursor: 'pointer' }}
+                  style={{ padding: '1.75rem', borderRadius: '12px', height: '100%', cursor: 'pointer', display: 'flex', flexDirection: 'column' }}
                 >
-                  <div style={{
-                    display: 'inline-block',
-                    fontFamily: 'var(--font-body)',
-                    fontSize: '0.75rem',
-                    fontWeight: 600,
-                    color: 'var(--accent)',
-                    background: 'rgba(217,203,181,0.08)',
-                    border: '1px solid rgba(217,203,181,0.15)',
-                    borderRadius: '100px',
-                    padding: '0.25rem 0.75rem',
-                    marginBottom: '1rem',
-                    letterSpacing: '0.05em',
-                  }}>
-                    {tag}
+                  <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+                    <div style={{
+                      display: 'inline-block',
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      color: 'var(--accent)',
+                      background: 'rgba(217,203,181,0.08)',
+                      border: '1px solid rgba(217,203,181,0.15)',
+                      borderRadius: '100px',
+                      padding: '0.25rem 0.75rem',
+                      letterSpacing: '0.05em',
+                    }}>
+                      {tag}
+                    </div>
+                    <div style={{
+                      display: 'inline-block',
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '0.75rem',
+                      fontWeight: 500,
+                      color: sourceColor,
+                      background: `${sourceColor}12`,
+                      border: `1px solid ${sourceColor}33`,
+                      borderRadius: '100px',
+                      padding: '0.25rem 0.75rem',
+                    }}>
+                      {source}
+                    </div>
                   </div>
                   <h3 style={{
                     fontFamily: 'var(--font-display)',
@@ -572,18 +595,24 @@ export default function HomePage() {
                     lineHeight: 1.4,
                     marginBottom: '1rem',
                     letterSpacing: '-0.01em',
+                    flex: 1,
                   }}>
                     {title}
                   </h3>
-                  <div style={{
-                    fontFamily: 'var(--font-body)',
-                    fontSize: '0.8125rem',
-                    color: 'var(--text-muted)',
-                  }}>
-                    {date}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '0.8125rem',
+                      color: 'var(--text-muted)',
+                    }}>
+                      {date}
+                    </span>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" strokeWidth="2">
+                      <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+                    </svg>
                   </div>
                 </article>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
