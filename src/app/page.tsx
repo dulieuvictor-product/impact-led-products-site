@@ -260,6 +260,20 @@ export default function HomePage() {
       </section>
 
       {/* ── LOGOS ── */}
+      <div style={{ background: 'var(--bg-base)', paddingTop: '2rem' }}>
+        <p style={{
+          textAlign: 'center',
+          fontFamily: 'var(--font-body)',
+          fontSize: '0.75rem',
+          fontWeight: 600,
+          color: 'var(--text-muted)',
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+          marginBottom: '1.5rem',
+        }}>
+          Intervention dans des contextes variés
+        </p>
+      </div>
       <div style={{
         borderTop: '1px solid var(--border)',
         borderBottom: '1px solid var(--border)',

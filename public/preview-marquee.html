@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preview — Logo Marquee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-deep: #040715;
+      --bg-base: #070D24;
+      --accent: #D9CBB5;
+      --text-primary: #E8E4DC;
+      --text-secondary: #9BA3BF;
+      --text-muted: #5A6380;
+      --border: rgba(255,255,255,0.08);
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3rem;
+      padding: 4rem 0;
+    }
+
+    /* ── Stats ── */
+    .stats {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      padding: 0 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .stat-value {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .award {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      text-decoration: none;
+    }
+    .award-emoji { font-size: 1.75rem; line-height: 1; }
+    .award-title {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .award-sub {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Marquee ── */
+    .marquee-wrap {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-base);
+      padding: 1.75rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .fade-left, .fade-right {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .fade-left  { left:  0; background: linear-gradient(to right, var(--bg-base), transparent); }
+    .fade-right { right: 0; background: linear-gradient(to left,  var(--bg-base), transparent); }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    .logo-item {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 2.5rem;
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+      cursor: default;
+    }
+    .logo-item:hover { color: var(--accent); }
+
+    .dot {
+      display: inline-block;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--border);
+      margin-left: 2.5rem;
+    }
+
+    /* ── Label ── */
+    .label {
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <p class="label">Intervention dans des contextes variés</p>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div>
+      <div class="stat-value">10+</div>
+      <div class="stat-label">ans d'expérience</div>
+    </div>
+    <div>
+      <div class="stat-value">30+</div>
+      <div class="stat-label">produits lancés</div>
+    </div>
+    <div>
+      <div class="stat-value">B2B & B2C</div>
+      <div class="stat-label">tous contextes</div>
+    </div>
+    <a href="https://www.productawards.fr/" target="_blank" class="award">
+      <span class="award-emoji">🏆</span>
+      <div>
+        <div class="award-title">Impact 2025</div>
+        <div class="award-sub">Product Awards · Bene Bono</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Marquee -->
+  <div class="marquee-wrap">
+    <div class="fade-left"></div>
+    <div class="fade-right"></div>
+    <div class="marquee-track">
+      <span class="logo-item">e-logik<span class="dot"></span></span>
+      <span class="logo-item">Bene Bono<span class="dot"></span></span>
+      <span class="logo-item">RATP<span class="dot"></span></span>
+      <span class="logo-item">ManoMano<span class="dot"></span></span>
+      <span class="logo-item">Kiute<span class="dot"></span></span>
+      <span class="logo-item">Thiga<span class="dot"></span></span>
+      <span class="logo-item">Leroy Merlin<span class="dot"></span></span>
+      <span class="logo-item">Décathlon<span class="dot"></span></span>
+      <span class="logo-item">SNCF Réseau<span class="dot"></span></span>
+      <!-- doublon -->
+      <span class="logo-item">e-logik<span class="dot"></span></span>
+      <span class="logo-item">Bene Bono<span class="dot"></span></span>
+      <span class="logo-item">RATP<span class="dot"></span></span>
+      <span class="logo-item">ManoMano<span class="dot"></span></span>
+      <span class="logo-item">Kiute<span class="dot"></span></span>
+      <span class="logo-item">Thiga<span class="dot"></span></span>
+      <span class="logo-item">Leroy Merlin<span class="dot"></span></span>
+      <span class="logo-item">Décathlon<span class="dot"></span></span>
+      <span class="logo-item">SNCF Réseau<span class="dot"></span></span>
+    </div>
+  </div>
+
+</body>
+</html>
