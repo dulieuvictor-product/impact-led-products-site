@@ -259,6 +259,67 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── LOGOS ── */}
+      <div style={{
+        borderTop: '1px solid var(--border)',
+        borderBottom: '1px solid var(--border)',
+        background: 'var(--bg-base)',
+        padding: '1.75rem 0',
+        overflow: 'hidden',
+        position: 'relative',
+      }}>
+        {/* Fondu gauche */}
+        <div style={{
+          position: 'absolute', left: 0, top: 0, bottom: 0, width: '120px', zIndex: 2,
+          background: 'linear-gradient(to right, var(--bg-base), transparent)',
+          pointerEvents: 'none',
+        }} />
+        {/* Fondu droite */}
+        <div style={{
+          position: 'absolute', right: 0, top: 0, bottom: 0, width: '120px', zIndex: 2,
+          background: 'linear-gradient(to left, var(--bg-base), transparent)',
+          pointerEvents: 'none',
+        }} />
+
+        <div className="marquee-track">
+          {[
+            'e-logik', 'Bene Bono', 'RATP', 'ManoMano', 'Kiute',
+            'Thiga', 'Leroy Merlin', 'Décathlon', 'SNCF Réseau',
+            // doublon pour le défilement sans coupure
+            'e-logik', 'Bene Bono', 'RATP', 'ManoMano', 'Kiute',
+            'Thiga', 'Leroy Merlin', 'Décathlon', 'SNCF Réseau',
+          ].map((name, i) => (
+            <span
+              key={i}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: '0 2.5rem',
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.9375rem',
+                fontWeight: 600,
+                color: 'var(--text-muted)',
+                letterSpacing: '0.02em',
+                whiteSpace: 'nowrap',
+                transition: 'color 0.2s ease',
+              }}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--accent)'}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'}
+            >
+              {name}
+              <span style={{
+                display: 'inline-block',
+                width: '4px',
+                height: '4px',
+                borderRadius: '50%',
+                background: 'var(--border)',
+                marginLeft: '2.5rem',
+              }} />
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* ── SERVICES ── */}
       <section style={{ padding: '6rem 1.5rem', background: 'var(--bg-base)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>

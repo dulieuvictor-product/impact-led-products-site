@@ -136,6 +136,20 @@ body {
   background: radial-gradient(circle, rgba(13,50,67,0.4) 0%, transparent 70%);
 }
 
+/* Carrousel logos */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
 /* Layout responsive — page templates */
 .templates-grid {
   display: grid;
