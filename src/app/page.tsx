@@ -63,13 +63,11 @@ export default function HomePage() {
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
         overflow: 'hidden',
       }}>
         {/* Orbes de fond */}
         <div className="orb orb-amber" style={{ width: '600px', height: '600px', top: '-100px', right: '-100px', opacity: 0.5 }} />
         <div className="orb orb-blue"  style={{ width: '500px', height: '500px', bottom: '0', left: '-150px' }} />
-
         {/* Grille décorative */}
         <div style={{
           position: 'absolute', inset: 0,
@@ -78,260 +76,129 @@ export default function HomePage() {
           pointerEvents: 'none',
         }} />
 
+        {/* Contenu principal */}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', padding: '0 1.5rem', position: 'relative', zIndex: 1 }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', paddingTop: '120px', paddingBottom: '60px' }}>
+          <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', paddingTop: '100px', paddingBottom: '2rem' }}>
 
-          {/* Badge */}
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            background: 'rgba(217,203,181,0.08)',
-            border: '1px solid rgba(217,203,181,0.2)',
-            borderRadius: '100px',
-            padding: '0.375rem 1rem',
-            marginBottom: '2rem',
-          }} className="glow-accent-sm">
-            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)' }} />
-            <span style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: '0.8125rem',
-              color: 'var(--accent)',
-              fontWeight: 500,
-              letterSpacing: '0.05em',
+            {/* Badge */}
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+              background: 'rgba(217,203,181,0.08)', border: '1px solid rgba(217,203,181,0.2)',
+              borderRadius: '100px', padding: '0.375rem 1rem', marginBottom: '1.5rem',
+            }} className="glow-accent-sm">
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)' }} />
+              <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.8125rem', color: 'var(--accent)', fontWeight: 500, letterSpacing: '0.05em' }}>
+                Product Manager · Product Builder Senior
+              </span>
+            </div>
+
+            {/* Titre */}
+            <h1 style={{
+              fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+              fontWeight: 700, lineHeight: 1.1, letterSpacing: '-0.03em',
+              color: 'var(--text-primary)', maxWidth: '800px', marginBottom: '1.25rem',
             }}>
-              Product Manager · Product Builder Senior
-            </span>
-          </div>
+              De l&apos;idée <span className="gradient-text">à l&apos;impact</span>
+            </h1>
 
-          {/* Titre principal */}
-          <h1 style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-            fontWeight: 700,
-            lineHeight: 1.1,
-            letterSpacing: '-0.03em',
-            color: 'var(--text-primary)',
-            maxWidth: '800px',
-            marginBottom: '1.5rem',
-          }}>
-            De l&apos;idée <span className="gradient-text">à l&apos;impact</span>
-          </h1>
+            {/* Sous-titre */}
+            <div style={{
+              fontFamily: 'var(--font-body)', fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+              color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '2rem', fontWeight: 400,
+            }}>
+              <span>
+                Aider les équipes produit à avoir de l&apos;impact : pour leurs{' '}
+                <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>clients</span>
+                {', '}l&apos;<span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>activité</span>
+                {' '}de leur entreprise et leur{' '}
+                <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>organisation</span>.
+              </span>
+              <br />
+              <span style={{ color: 'var(--text-muted)' }}>Pas de méthodes ou de frameworks — des mises en pratique.</span>
+            </div>
 
-          {/* Sous-titre */}
-          <div style={{
-            fontFamily: 'var(--font-body)',
-            fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-            color: 'var(--text-secondary)',
-            lineHeight: 1.7,
-            maxWidth: '100%',
-            marginBottom: '2.5rem',
-            fontWeight: 400,
-          }}>
-            <span>
-              Aider les équipes produit à avoir de l&apos;impact : pour leurs{' '}
-              <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>clients</span>
-              {', '}l&apos;
-              <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>activité</span>
-              {' '}de leur entreprise et leur{' '}
-              <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>organisation</span>
-              {'.'}
-            </span>
-            <br />
-            <span style={{ color: 'var(--text-muted)' }}>
-              Pas de méthodes ou de frameworks — des mises en pratique.
-            </span>
-          </div>
+            {/* CTA */}
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '2.5rem' }}>
+              <Link
+                href="/contact"
+                onClick={() => phCapture('cta_clicked', { label: 'Discutons de votre projet', location: 'hero' })}
+                style={{ fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '0.9375rem', color: 'var(--bg-deep)', background: 'var(--accent)', padding: '0.875rem 2rem', borderRadius: '8px', textDecoration: 'none', transition: 'box-shadow 0.2s ease', letterSpacing: '0.01em' }}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.boxShadow = '0 0 30px rgba(217,203,181,0.35)'}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.boxShadow = 'none'}
+              >
+                Discutons de votre projet
+              </Link>
+              <Link
+                href="/blog"
+                onClick={() => phCapture('cta_clicked', { label: 'Lire les publications', location: 'hero' })}
+                style={{ fontFamily: 'var(--font-body)', fontWeight: 500, fontSize: '0.9375rem', color: 'var(--text-secondary)', background: 'transparent', border: '1px solid var(--border)', padding: '0.875rem 2rem', borderRadius: '8px', textDecoration: 'none', transition: 'border-color 0.2s ease, color 0.2s ease', letterSpacing: '0.01em', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-hover)'; (e.currentTarget as HTMLElement).style.color = 'var(--text-primary)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)'; (e.currentTarget as HTMLElement).style.color = 'var(--text-secondary)'; }}
+              >
+                Lire les publications
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </Link>
+            </div>
 
-          {/* CTA */}
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
-            <Link
-              href="/contact"
-              onClick={() => phCapture('cta_clicked', { label: 'Discutons de votre projet', location: 'hero' })}
-              style={{
-                fontFamily: 'var(--font-body)',
-                fontWeight: 600,
-                fontSize: '0.9375rem',
-                color: 'var(--bg-deep)',
-                background: 'var(--accent)',
-                padding: '0.875rem 2rem',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                transition: 'box-shadow 0.2s ease',
-                letterSpacing: '0.01em',
-              }}
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.boxShadow = '0 0 30px rgba(217,203,181,0.35)'}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.boxShadow = 'none'}
-            >
-              Discutons de votre projet
-            </Link>
-            <Link
-              href="/blog"
-              onClick={() => phCapture('cta_clicked', { label: 'Lire les publications', location: 'hero' })}
-              style={{
-                fontFamily: 'var(--font-body)',
-                fontWeight: 500,
-                fontSize: '0.9375rem',
-                color: 'var(--text-secondary)',
-                background: 'transparent',
-                border: '1px solid var(--border)',
-                padding: '0.875rem 2rem',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                transition: 'border-color 0.2s ease, color 0.2s ease',
-                letterSpacing: '0.01em',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-              }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-hover)';
-                (e.currentTarget as HTMLElement).style.color = 'var(--text-primary)';
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)';
-                (e.currentTarget as HTMLElement).style.color = 'var(--text-secondary)';
-              }}
-            >
-              Lire les publications
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </Link>
-          </div>
-
-          {/* Stats */}
-          <div style={{ display: 'flex', gap: '3rem', marginTop: '4rem', flexWrap: 'wrap', alignItems: 'flex-start' }}>
-            {[
-              { value: '10+', label: 'ans d\'expérience' },
-              { value: '30+', label: 'produits lancés' },
-              { value: 'B2B & B2C', label: 'tous contextes' },
-            ].map(({ value, label }) => (
-              <div key={label}>
-                <div style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '1.75rem',
-                  fontWeight: 700,
-                  color: 'var(--accent)',
-                  lineHeight: 1,
-                  marginBottom: '0.25rem',
-                }}>{value}</div>
-                <div style={{
-                  fontFamily: 'var(--font-body)',
-                  fontSize: '0.8125rem',
-                  color: 'var(--text-muted)',
-                }}>{label}</div>
-              </div>
-            ))}
-
-            {/* Award */}
-            <a
-              href="https://www.productawards.fr/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: 'none' }}
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = '0.8'}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = '1'}
-            >
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.625rem' }}>
-                <span style={{ fontSize: '1.75rem', lineHeight: 1 }}>🏆</span>
-                <div>
-                  <div style={{
-                    fontFamily: 'var(--font-display)',
-                    fontSize: '1.75rem',
-                    fontWeight: 700,
-                    color: 'var(--accent)',
-                    lineHeight: 1,
-                    marginBottom: '0.25rem',
-                  }}>
-                    Impact 2025
-                  </div>
-                  <div style={{
-                    fontFamily: 'var(--font-body)',
-                    fontSize: '0.8125rem',
-                    color: 'var(--text-muted)',
-                  }}>
-                    Product Awards · Bene Bono
+            {/* Stats */}
+            <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+              {[
+                { value: '10+', label: 'ans d\'expérience' },
+                { value: '30+', label: 'produits lancés' },
+                { value: 'B2B & B2C', label: 'tous contextes' },
+              ].map(({ value, label }) => (
+                <div key={label}>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem', fontWeight: 700, color: 'var(--accent)', lineHeight: 1, marginBottom: '0.25rem' }}>{value}</div>
+                  <div style={{ fontFamily: 'var(--font-body)', fontSize: '0.8125rem', color: 'var(--text-muted)' }}>{label}</div>
+                </div>
+              ))}
+              <a href="https://www.productawards.fr/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = '0.8'}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = '1'}
+              >
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.625rem' }}>
+                  <span style={{ fontSize: '1.75rem', lineHeight: 1 }}>🏆</span>
+                  <div>
+                    <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem', fontWeight: 700, color: 'var(--accent)', lineHeight: 1, marginBottom: '0.25rem' }}>Impact 2025</div>
+                    <div style={{ fontFamily: 'var(--font-body)', fontSize: '0.8125rem', color: 'var(--text-muted)' }}>Product Awards · Bene Bono</div>
                   </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </div>
+
           </div>
         </div>
 
-        </div>{/* fin flex wrapper */}
-
-        {/* ── LOGOS — ancré en bas du hero ── */}
+        {/* ── FRISE LOGOS — collée en bas ── */}
         <div style={{ position: 'relative', zIndex: 1 }}>
           <p style={{
-            textAlign: 'center',
-            fontFamily: 'var(--font-body)',
-            fontSize: '0.75rem',
-            fontWeight: 600,
-            color: 'var(--text-muted)',
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-            marginBottom: '1rem',
+            textAlign: 'center', fontFamily: 'var(--font-body)', fontSize: '0.75rem',
+            fontWeight: 600, color: 'var(--text-muted)', letterSpacing: '0.1em',
+            textTransform: 'uppercase', marginBottom: '0.875rem',
           }}>
             Intervention dans des contextes variés
           </p>
-          <div style={{
-            borderTop: '1px solid var(--border)',
-            padding: '1.5rem 0',
-            overflow: 'hidden',
-            position: 'relative',
-          }}>
-        {/* Fondu gauche */}
-        <div style={{
-          position: 'absolute', left: 0, top: 0, bottom: 0, width: '120px', zIndex: 2,
-          background: 'linear-gradient(to right, var(--bg-deep), transparent)',
-          pointerEvents: 'none',
-        }} />
-        {/* Fondu droite */}
-        <div style={{
-          position: 'absolute', right: 0, top: 0, bottom: 0, width: '120px', zIndex: 2,
-          background: 'linear-gradient(to left, var(--bg-deep), transparent)',
-          pointerEvents: 'none',
-        }} />
-
-        <div className="marquee-track">
-          {[
-            'e-logik', 'Bene Bono', 'RATP', 'ManoMano',
-            'Thiga', 'Leroy Merlin', 'Décathlon', 'SNCF Réseau',
-            // doublon pour le défilement sans coupure
-            'e-logik', 'Bene Bono', 'RATP', 'ManoMano',
-            'Thiga', 'Leroy Merlin', 'Décathlon', 'SNCF Réseau',
-          ].map((name, i) => (
-            <span
-              key={i}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                padding: '0 2.5rem',
-                fontFamily: 'var(--font-display)',
-                fontSize: '0.9375rem',
-                fontWeight: 600,
-                color: 'var(--text-muted)',
-                letterSpacing: '0.02em',
-                whiteSpace: 'nowrap',
-                transition: 'color 0.2s ease',
-              }}
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--accent)'}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'}
-            >
-              {name}
-              <span style={{
-                display: 'inline-block',
-                width: '4px',
-                height: '4px',
-                borderRadius: '50%',
-                background: 'var(--border)',
-                marginLeft: '2.5rem',
-              }} />
-            </span>
-          ))}
+          <div style={{ borderTop: '1px solid var(--border)', padding: '1.25rem 0', overflow: 'hidden', position: 'relative' }}>
+            <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '120px', zIndex: 2, background: 'linear-gradient(to right, var(--bg-deep), transparent)', pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '120px', zIndex: 2, background: 'linear-gradient(to left, var(--bg-deep), transparent)', pointerEvents: 'none' }} />
+            <div className="marquee-track">
+              {[
+                'e-logik', 'Bene Bono', 'RATP', 'ManoMano', 'Thiga', 'Leroy Merlin', 'Décathlon', 'SNCF Réseau',
+                'e-logik', 'Bene Bono', 'RATP', 'ManoMano', 'Thiga', 'Leroy Merlin', 'Décathlon', 'SNCF Réseau',
+              ].map((name, i) => (
+                <span key={i}
+                  style={{ display: 'inline-flex', alignItems: 'center', padding: '0 2.5rem', fontFamily: 'var(--font-display)', fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-muted)', letterSpacing: '0.02em', whiteSpace: 'nowrap', transition: 'color 0.2s ease' }}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--accent)'}
+                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'}
+                >
+                  {name}
+                  <span style={{ display: 'inline-block', width: '4px', height: '4px', borderRadius: '50%', background: 'var(--border)', marginLeft: '2.5rem' }} />
+                </span>
+              ))}
+            </div>
           </div>
         </div>
+
       </section>
 
       {/* ── SERVICES ── */}
