@@ -354,104 +354,74 @@ export default function HomePage() {
 
       {/* ── À PROPOS ── */}
       <section style={{ padding: '6rem 1.5rem', background: 'var(--bg-base)' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'start' }}>
 
+          {/* Texte */}
           <div>
-            <div style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: '0.75rem',
-              fontWeight: 600,
-              color: 'var(--accent)',
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              marginBottom: '1rem',
-            }}>
+            <div style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem' }}>
               À propos
             </div>
-            <h2 style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
-              fontWeight: 700,
-              color: 'var(--text-primary)',
-              letterSpacing: '-0.025em',
-              lineHeight: 1.2,
-              marginBottom: '1.5rem',
-            }}>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '-0.025em', lineHeight: 1.2, marginBottom: '1.5rem' }}>
               Victor Dulieu
             </h2>
-            <p style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: '1rem',
-              color: 'var(--text-secondary)',
-              lineHeight: 1.8,
-              marginBottom: '1.25rem',
-            }}>
-              Product Manager et Product Builder avec plus de 10 ans d&apos;expérience dans la construction de produits numériques en B2B et B2C.
-              J&apos;ai accompagné des startups, des scale-ups et des grands groupes à définir leur stratégie produit, structurer leurs équipes et livrer des solutions qui créent de la valeur durable.
-            </p>
-            <p style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: '1rem',
-              color: 'var(--text-secondary)',
-              lineHeight: 1.8,
-              marginBottom: '2rem',
-            }}>
-              Impact-led products est le cadre dans lequel je partage mes méthodes, mes outils Notion et mes réflexions — pour vous aider à passer de l&apos;idée à l&apos;impact.
-            </p>
-            <a
-              href="https://www.linkedin.com/in/victordulieu/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                fontFamily: 'var(--font-body)',
-                fontSize: '0.9375rem',
-                fontWeight: 500,
-                color: 'var(--accent)',
-                textDecoration: 'none',
-                borderBottom: '1px solid rgba(217,203,181,0.3)',
-                paddingBottom: '2px',
-                transition: 'border-color 0.2s ease',
-              }}
-            >
-              Voir le profil LinkedIn
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-              </svg>
-            </a>
+
+            {[
+              'Product Manager depuis plus de 11 ans, j\'ai travaillé sur des produits très variés : applications internes et mobile client chez Bene Bono, apps mobile à La Poste, marketplaces pour ManoMano et LVMH, plateformes SaaS, et même de l\'IoT. Des contextes radicalement différents — de la startup early stage à la scale-up en passant par les grands groupes.',
+              'Plus récemment, j\'ai pris la tête des équipes produit d\'une startup en tant que Head of Product, après une expérience entrepreneuriale. Un moment clé qui a renforcé ma conviction que l\'impact se construit autant dans l\'organisation que dans le produit lui-même.',
+              'Progressivement, j\'ai développé une activité de formateur et coach en product management. J\'accompagne des entreprises de toutes tailles dans la maîtrise des pratiques produit — en adaptant toujours les méthodes au contexte réel, pas l\'inverse.',
+              'Je cherche à alterner missions opérationnelles (PM, Lead PM) et accompagnements : rester ancré dans la pratique tout en prenant le recul nécessaire pour me confronter à des enjeux variés.',
+            ].map((text, i) => (
+              <p key={i} style={{ fontFamily: 'var(--font-body)', fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.125rem' }}>
+                {text}
+              </p>
+            ))}
+
+            <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', marginTop: '1.75rem' }}>
+              <a href="https://www.linkedin.com/in/victordulieu/" target="_blank" rel="noopener noreferrer"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontFamily: 'var(--font-body)', fontSize: '0.9375rem', fontWeight: 500, color: 'var(--accent)', textDecoration: 'none', borderBottom: '1px solid rgba(217,203,181,0.3)', paddingBottom: '2px' }}
+              >
+                Profil LinkedIn
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </a>
+              <a href="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontFamily: 'var(--font-body)', fontSize: '0.9375rem', fontWeight: 500, color: 'var(--text-secondary)', textDecoration: 'none', borderBottom: '1px solid rgba(155,163,191,0.3)', paddingBottom: '2px' }}>
+                Lire mes articles
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
           </div>
 
-          {/* Carte compétences */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            {[
-              { label: 'Product Strategy', years: '10+ ans' },
-              { label: 'Product Discovery', years: '8+ ans' },
-              { label: 'OKR & KPI Frameworks', years: '6+ ans' },
-              { label: 'Team Leadership', years: '7+ ans' },
-              { label: 'Notion Systems Design', years: '4+ ans' },
-            ].map(({ label, years }) => (
-              <div
-                key={label}
-                className="glass-card"
-                style={{
-                  padding: '1rem 1.25rem',
-                  borderRadius: '8px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.9375rem', color: 'var(--text-primary)', fontWeight: 500 }}>
-                  {label}
-                </span>
-                <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.8125rem', color: 'var(--text-muted)' }}>
-                  {years}
-                </span>
-              </div>
-            ))}
+          {/* Photo + compétences */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center' }}>
+            {/* Photo ronde */}
+            <div style={{
+              width: '200px', height: '200px', borderRadius: '50%', overflow: 'hidden', flexShrink: 0,
+              border: '3px solid rgba(217,203,181,0.25)',
+              boxShadow: '0 0 40px rgba(217,203,181,0.1)',
+            }}>
+              <img
+                src="/victor.jpg"
+                alt="Victor Dulieu"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
+              />
+            </div>
+
+            {/* Compétences */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem', width: '100%' }}>
+              {[
+                { label: 'Product Strategy', years: '11+ ans' },
+                { label: 'Product Discovery', years: '8+ ans' },
+                { label: 'OKR & KPI Frameworks', years: '6+ ans' },
+                { label: 'Team Leadership & Coaching', years: '5+ ans' },
+                { label: 'Operating System Notion', years: '4+ ans' },
+              ].map(({ label, years }) => (
+                <div key={label} className="glass-card" style={{ padding: '0.875rem 1.25rem', borderRadius: '8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.875rem', color: 'var(--text-primary)', fontWeight: 500 }}>{label}</span>
+                  <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.8125rem', color: 'var(--text-muted)' }}>{years}</span>
+                </div>
+              ))}
+            </div>
           </div>
+
         </div>
       </section>
 
