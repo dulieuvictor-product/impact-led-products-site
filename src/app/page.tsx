@@ -42,8 +42,8 @@ const services = [
         <rect x="3" y="14" width="7" height="7"/>
       </svg>
     ),
-    title: 'Frameworks Notion',
-    desc: "Des systèmes opérationnels prêts à l'emploi : roadmap, discovery, OKR et rituels d'équipe — directement dans Notion.",
+    title: 'Operating system',
+    desc: "Des modèles et ressources prêts à l'emploi : atelier, guide de user research, prompting product, roadmap, discovery, OKR et rituels d'équipe — disponibles en téléchargement.",
   },
 ];
 
