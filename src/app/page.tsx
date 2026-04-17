@@ -527,7 +527,7 @@ export default function HomePage() {
                 sourceColor: '#A8B4C8',
                 title: '(repost) Le Product delight dans une boîte à impact, cosmétique ou vraiment utile ?',
                 date: '21 octobre 2025',
-                url: 'https://medium.com/@dulieu.victor/repost-le-product-delight-dans-une-boîte-à-impact-cosmétique-ou-vraiment-utile-bb84ab74b53d',
+                url: 'https://theproductshift.substack.com/p/le-product-delight-dans-une-boite',
               },
               {
                 tag: 'IA & Produit',

@@ -74,7 +74,7 @@ const articles: Article[] = ([
     date: '2025-10-21',
     dateLabel: '21 octobre 2025',
     readingTime: '1 min',
-    url: 'https://medium.com/@dulieu.victor/repost-le-product-delight-dans-une-boîte-à-impact-cosmétique-ou-vraiment-utile-bb84ab74b53d',
+    url: 'https://theproductshift.substack.com/p/le-product-delight-dans-une-boite',
     source: 'medium',
     tag: 'Impact',
   },
