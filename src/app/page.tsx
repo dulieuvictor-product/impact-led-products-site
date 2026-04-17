@@ -62,10 +62,9 @@ export default function HomePage() {
         position: 'relative',
         minHeight: '100vh',
         display: 'flex',
-        alignItems: 'center',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
         overflow: 'hidden',
-        padding: '0 1.5rem',
-        paddingBottom: '130px',
       }}>
         {/* Orbes de fond */}
         <div className="orb orb-amber" style={{ width: '600px', height: '600px', top: '-100px', right: '-100px', opacity: 0.5 }} />
@@ -79,7 +78,8 @@ export default function HomePage() {
           pointerEvents: 'none',
         }} />
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', paddingTop: '120px', paddingBottom: '100px', position: 'relative', zIndex: 1 }}>
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', padding: '0 1.5rem', position: 'relative', zIndex: 1 }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', paddingTop: '120px', paddingBottom: '60px' }}>
 
           {/* Badge */}
           <div style={{
@@ -259,11 +259,10 @@ export default function HomePage() {
           </div>
         </div>
 
+        </div>{/* fin flex wrapper */}
+
         {/* ── LOGOS — ancré en bas du hero ── */}
-        <div style={{
-          position: 'absolute',
-          bottom: 0, left: 0, right: 0,
-        }}>
+        <div style={{ position: 'relative', zIndex: 1 }}>
           <p style={{
             textAlign: 'center',
             fontFamily: 'var(--font-body)',
