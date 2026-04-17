@@ -284,13 +284,13 @@ export default function HomePage() {
         {/* Fondu gauche */}
         <div style={{
           position: 'absolute', left: 0, top: 0, bottom: 0, width: '120px', zIndex: 2,
-          background: 'linear-gradient(to right, var(--bg-base), transparent)',
+          background: 'linear-gradient(to right, var(--bg-deep), transparent)',
           pointerEvents: 'none',
         }} />
         {/* Fondu droite */}
         <div style={{
           position: 'absolute', right: 0, top: 0, bottom: 0, width: '120px', zIndex: 2,
-          background: 'linear-gradient(to left, var(--bg-base), transparent)',
+          background: 'linear-gradient(to left, var(--bg-deep), transparent)',
           pointerEvents: 'none',
         }} />
 
