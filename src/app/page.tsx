@@ -127,7 +127,7 @@ export default function HomePage() {
             marginBottom: '2.5rem',
             fontWeight: 400,
           }}>
-            J&apos;aide les équipes et les organisations à construire des produits qui comptent vraiment — en combinant rigueur stratégique, exécution rapide et obsession de la valeur créée.
+            Aider les équipes produit à avoir de l&apos;impact : pour leurs clients, l&apos;activité de leur entreprise et leur organisation. Pas de méthodes ou de frameworks mais des mises en pratique.
           </p>
 
           {/* CTA */}
