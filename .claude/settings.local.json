@@ -8,7 +8,9 @@
       "Bash(brew list:*)",
       "Bash(/opt/homebrew/bin/brew list:*)",
       "Bash(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh)",
-      "Bash(bash)"
+      "Bash(bash)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:www.media.thiga.co)"
     ]
   }
 }
