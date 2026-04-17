@@ -65,6 +65,7 @@ export default function HomePage() {
         alignItems: 'center',
         overflow: 'hidden',
         padding: '0 1.5rem',
+        paddingBottom: '130px',
       }}>
         {/* Orbes de fond */}
         <div className="orb orb-amber" style={{ width: '600px', height: '600px', top: '-100px', right: '-100px', opacity: 0.5 }} />
@@ -257,31 +258,30 @@ export default function HomePage() {
             </a>
           </div>
         </div>
-      </section>
 
-      {/* ── LOGOS ── */}
-      <div style={{ background: 'var(--bg-base)', paddingTop: '2rem' }}>
-        <p style={{
-          textAlign: 'center',
-          fontFamily: 'var(--font-body)',
-          fontSize: '0.75rem',
-          fontWeight: 600,
-          color: 'var(--text-muted)',
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-          marginBottom: '1.5rem',
+        {/* ── LOGOS — ancré en bas du hero ── */}
+        <div style={{
+          position: 'absolute',
+          bottom: 0, left: 0, right: 0,
         }}>
-          Intervention dans des contextes variés
-        </p>
-      </div>
-      <div style={{
-        borderTop: '1px solid var(--border)',
-        borderBottom: '1px solid var(--border)',
-        background: 'var(--bg-base)',
-        padding: '1.75rem 0',
-        overflow: 'hidden',
-        position: 'relative',
-      }}>
+          <p style={{
+            textAlign: 'center',
+            fontFamily: 'var(--font-body)',
+            fontSize: '0.75rem',
+            fontWeight: 600,
+            color: 'var(--text-muted)',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            marginBottom: '1rem',
+          }}>
+            Intervention dans des contextes variés
+          </p>
+          <div style={{
+            borderTop: '1px solid var(--border)',
+            padding: '1.5rem 0',
+            overflow: 'hidden',
+            position: 'relative',
+          }}>
         {/* Fondu gauche */}
         <div style={{
           position: 'absolute', left: 0, top: 0, bottom: 0, width: '120px', zIndex: 2,
@@ -331,8 +331,9 @@ export default function HomePage() {
               }} />
             </span>
           ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* ── SERVICES ── */}
       <section style={{ padding: '6rem 1.5rem', background: 'var(--bg-base)' }}>
