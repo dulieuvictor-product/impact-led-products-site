@@ -118,17 +118,29 @@ export default function HomePage() {
           </h1>
 
           {/* Sous-titre */}
-          <p style={{
+          <div style={{
             fontFamily: 'var(--font-body)',
             fontSize: 'clamp(1rem, 2vw, 1.25rem)',
             color: 'var(--text-secondary)',
             lineHeight: 1.7,
-            maxWidth: '580px',
+            maxWidth: '100%',
             marginBottom: '2.5rem',
             fontWeight: 400,
           }}>
-            Aider les équipes produit à avoir de l&apos;impact : pour leurs clients, l&apos;activité de leur entreprise et leur organisation. Pas de méthodes ou de frameworks mais des mises en pratique.
-          </p>
+            <span>
+              Aider les équipes produit à avoir de l&apos;impact : pour leurs{' '}
+              <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>clients</span>
+              {', '}l&apos;
+              <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>activité</span>
+              {' '}de leur entreprise et leur{' '}
+              <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>organisation</span>
+              {'.'}
+            </span>
+            <br />
+            <span style={{ color: 'var(--text-muted)' }}>
+              Pas de méthodes ou de frameworks — des mises en pratique.
+            </span>
+          </div>
 
           {/* CTA */}
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
