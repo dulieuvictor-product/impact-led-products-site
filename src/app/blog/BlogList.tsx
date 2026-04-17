@@ -2,7 +2,7 @@
 
 import { phCapture } from '@/lib/posthog';
 
-type Source = 'medium' | 'thiga';
+type Source = 'medium' | 'thiga' | 'productshift';
 
 interface Article {
   title: string;
@@ -75,7 +75,7 @@ const articles: Article[] = ([
     dateLabel: '21 octobre 2025',
     readingTime: '1 min',
     url: 'https://theproductshift.substack.com/p/le-product-delight-dans-une-boite',
-    source: 'medium',
+    source: 'productshift',
     tag: 'Impact',
   },
   // ── Thiga ──
@@ -117,6 +117,17 @@ const sourceConfig = {
     logo: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
         <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+      </svg>
+    ),
+  },
+  productshift: {
+    label: 'The Product Shift',
+    cta: 'Lire sur The Product Shift',
+    color: '#F9A8D4',
+    bg: 'rgba(249,168,212,0.08)',
+    logo: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M4 4l16 0M4 12l10 0M4 20l16 0"/>
       </svg>
     ),
   },

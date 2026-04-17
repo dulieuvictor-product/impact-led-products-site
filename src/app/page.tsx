@@ -523,8 +523,8 @@ export default function HomePage() {
             {[
               {
                 tag: 'Impact',
-                source: 'Medium',
-                sourceColor: '#A8B4C8',
+                source: 'The Product Shift',
+                sourceColor: '#F9A8D4',
                 title: '(repost) Le Product delight dans une boîte à impact, cosmétique ou vraiment utile ?',
                 date: '21 octobre 2025',
                 url: 'https://theproductshift.substack.com/p/le-product-delight-dans-une-boite',
