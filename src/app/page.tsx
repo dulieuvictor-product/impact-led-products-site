@@ -188,7 +188,7 @@ export default function HomePage() {
           </div>
 
           {/* Stats */}
-          <div style={{ display: 'flex', gap: '3rem', marginTop: '4rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '3rem', marginTop: '4rem', flexWrap: 'wrap', alignItems: 'flex-start' }}>
             {[
               { value: '10+', label: 'ans d\'expérience' },
               { value: '30+', label: 'produits lancés' },
@@ -210,6 +210,40 @@ export default function HomePage() {
                 }}>{label}</div>
               </div>
             ))}
+
+            {/* Award */}
+            <a
+              href="https://www.productawards.fr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none' }}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = '0.8'}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = '1'}
+            >
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.625rem' }}>
+                <span style={{ fontSize: '1.5rem', lineHeight: 1 }}>🏆</span>
+                <div>
+                  <div style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    color: 'var(--accent)',
+                    lineHeight: 1.3,
+                    marginBottom: '0.2rem',
+                  }}>
+                    Produit à impact 2025
+                  </div>
+                  <div style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '0.75rem',
+                    color: 'var(--text-muted)',
+                    lineHeight: 1.4,
+                  }}>
+                    Product Awards · Bene Bono
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </section>
