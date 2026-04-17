@@ -297,10 +297,10 @@ export default function HomePage() {
 
         <div className="marquee-track">
           {[
-            'e-logik', 'Bene Bono', 'RATP', 'ManoMano', 'Kiute',
+            'e-logik', 'Bene Bono', 'RATP', 'ManoMano',
             'Thiga', 'Leroy Merlin', 'Décathlon', 'SNCF Réseau',
             // doublon pour le défilement sans coupure
-            'e-logik', 'Bene Bono', 'RATP', 'ManoMano', 'Kiute',
+            'e-logik', 'Bene Bono', 'RATP', 'ManoMano',
             'Thiga', 'Leroy Merlin', 'Décathlon', 'SNCF Réseau',
           ].map((name, i) => (
             <span
