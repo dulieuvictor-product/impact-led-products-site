@@ -231,7 +231,7 @@ export default function TemplatesPage() {
       </section>
 
       <section style={{ padding: '4rem 1.5rem 5rem', maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(600px, 1fr))', gap: '3rem', alignItems: 'start' }}>
+        <div className="templates-grid">
 
           {/* ── Liste des ressources ── */}
           <div>
@@ -353,7 +353,7 @@ export default function TemplatesPage() {
           </div>
 
           {/* ── Formulaire de demande ── */}
-          <div style={{ position: 'sticky', top: '88px' }}>
+          <div className="templates-form-sticky">
             <div className="glass-card" style={{ borderRadius: '16px', padding: '2rem' }}>
               <h2 style={{
                 fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700,
